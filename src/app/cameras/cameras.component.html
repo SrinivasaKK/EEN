@@ -1,0 +1,25 @@
+<div>
+  <div class="example-loading-shade" *ngIf="showLoader">
+    <mat-spinner *ngIf="showLoader"></mat-spinner>
+  </div>
+  <mat-card
+    *ngFor="let camera of cameraList; let i = index"
+    (click)="getCameraDetails(camera.cameraId)"
+    class="mat-card-camera"
+  >
+    <mat-card-title>
+      {{ camera.name }}
+    </mat-card-title>
+    <mat-card-subtitle>ID: {{ camera.cameraId }}</mat-card-subtitle>
+    <mat-card-actions>
+      <button
+        type="submit"
+        mat-flat-button
+        color="primary"
+        (click)="getCameraDetails(camera.cameraId)"
+      >
+        <mat-icon>arrow_right_alt</mat-icon>{{ TEXTS.SHOW_DETAILS }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,59 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade" *ngIf="showLoader">
+    <mat-spinner *ngIf="showLoader"></mat-spinner>
+  </div>
+  <mat-card *ngIf="!showLoader" class="example-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <h2>{{ TEXTS.LOGIN_TEXT }}</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ TEXTS.USERNAME_LABEL }} </mat-label>
+        <input
+          matInput
+          placeholder="{{ TEXTS.USERNAME_LABEL }}"
+          formControlName="username"
+          [errorStateMatcher]="matcher"
+        />
+
+        <mat-error>
+          <span
+            *ngIf="
+              !loginForm.get('username').valid &&
+              loginForm.get('username').touched
+            "
+            >{{ TEXTS.USERNAME_ERROR }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>{{ TEXTS.PASSWORD_LABEL }} </mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="{{ TEXTS.PASSWORD_LABEL }}"
+          formControlName="password"
+          [errorStateMatcher]="matcher"
+        />
+
+        <mat-error>
+          <span
+            *ngIf="
+              !loginForm.get('password').valid &&
+              loginForm.get('password').touched
+            "
+            >{{ TEXTS.PASSWORD_ERROR }}</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button
+          type="submit"
+          [disabled]="!loginForm.valid"
+          mat-flat-button
+          color="primary"
+        >
+          <mat-icon>login</mat-icon>{{ TEXTS.LOGIN_BUTTON_TEXT }}
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
