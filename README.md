@@ -17,15 +17,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Brief Explanation of working of this application
 
 1. The application starts at route `/login`. The Login component has login form where user can enter credentials and login.
-   Assumptions made:
-1. User name cannot be empty and can have max of 50 characters
-1. password cannot be empty and should have minimum of 8 characters and max of 50 characters
+2. Assumptions made:
 
-1. Once user is successfully authenticated, routed to `/cameras` where the list of cameras for the particular account are listed
+   1. User name cannot be empty and can have max of 50 characters
+   2. password cannot be empty and should have minimum of 8 characters and max of 50 characters
 
-1. Clicking on camera card will take user to `/cameras/cameraId`, where few details are fetched and displayed
+3. Once user is successfully authenticated, routed to `/cameras` where the list of cameras for the particular account are listed
 
-1. Logout will kill the session and clear all tokens and other storage variables.
+4. Clicking on camera card will take user to `/cameras/cameraId`, where few details are fetched and displayed
+
+5. Logout will kill the session and clear all tokens and other storage variables.
 
 ## Features developed
 
