@@ -81,7 +81,12 @@ export class LoginComponent implements OnInit {
       },
       (error: ErrorResponseModel) => {
         this.authService.isUserLoggedIn = false;
-        alert(error.error.error_description);
+        if (error.error.error_description) {
+          alert(error.error.error_description);
+        } else {
+          alert(STATIC_TEXTS.CORS_ALERT);
+        }
+
         this.loginForm.reset();
         this.showLoader = false;
       }

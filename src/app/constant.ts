@@ -43,6 +43,8 @@ export const STATIC_TEXTS = {
   RECORDING_ON_SD: 'Recording On SD',
   BUTTON_CAMERA_LOCATION: 'Get Camera Location',
   CAMERA_LOCATED: 'Your camera is located at',
+  CORS_ALERT:
+    "CORS ERROR! Please close all your chrome/ edge tabs. For disabling CORS in chrome, please open the terminal/cmd and paste this command:' C:Program Files (x86)GoogleChromeApplicationchrome.exe --disable-web-security --disable-gpu --user-data-dir=~/chromeTemp'",
 };
 
 export const APP_ROUTES = {
