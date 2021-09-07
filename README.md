@@ -40,6 +40,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 5. Have used Models for each API returned responses.
 
-6. Design is fairly Simple and simple. Used Angular material and css flex for it. No fancy designs.
+6. Design is fairly Simple and clean. Used Angular material and css flex for it. No fancy designs.
 
 7. Added plenty of unit test cases.
+
+8. No hardcoded texts in any html files. They are kept separately . The is done keeping multi language support in mind. We can move this static texts into database and access the texts of particular language
