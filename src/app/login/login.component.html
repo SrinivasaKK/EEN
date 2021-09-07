@@ -3,22 +3,22 @@
     <mat-spinner *ngIf="showLoader"></mat-spinner>
   </div>
   <mat-card *ngIf="!showLoader" class="example-card">
-    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()" id="loginForm">
       <h2>{{ TEXTS.LOGIN_TEXT }}</h2>
       <mat-form-field class="full-width">
         <mat-label>{{ TEXTS.USERNAME_LABEL }} </mat-label>
         <input
           matInput
           placeholder="{{ TEXTS.USERNAME_LABEL }}"
-          formControlName="username"
+          [formControlName]="FIELDS.USER_NAME"
           [errorStateMatcher]="matcher"
         />
 
         <mat-error>
           <span
             *ngIf="
-              !loginForm.get('username').valid &&
-              loginForm.get('username').touched
+              !loginForm.get(FIELDS.USER_NAME).valid &&
+              loginForm.get(FIELDS.USER_NAME).touched
             "
             >{{ TEXTS.USERNAME_ERROR }}</span
           >
@@ -30,15 +30,15 @@
           type="password"
           matInput
           placeholder="{{ TEXTS.PASSWORD_LABEL }}"
-          formControlName="password"
+          [formControlName]="FIELDS.PASSWORD"
           [errorStateMatcher]="matcher"
         />
 
         <mat-error>
           <span
             *ngIf="
-              !loginForm.get('password').valid &&
-              loginForm.get('password').touched
+              !loginForm.get(FIELDS.PASSWORD).valid &&
+              loginForm.get(FIELDS.PASSWORD).touched
             "
             >{{ TEXTS.PASSWORD_ERROR }}</span
           >

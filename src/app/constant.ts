@@ -49,3 +49,8 @@ export const APP_ROUTES = {
   LOGIN: 'login',
   CAMERAS: 'cameras',
 };
+
+export const FIELDS = {
+  USER_NAME: 'fcUserName',
+  PASSWORD: 'fcPassword',
+};

@@ -103,7 +103,7 @@ export class AuthService {
       .pipe(catchError(this.handleError));
   }
 
-  delete(url): Observable<any> {
+  delete(url: string): Observable<any> {
     return this.http.delete<any>(url).pipe(catchError(this.handleError));
   }
 }

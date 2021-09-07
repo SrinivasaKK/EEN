@@ -9,13 +9,12 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import {
   ErrorResponseModel,
   PostResponseModel,
 } from '../models/response.model';
 import { StorageService } from '../services/storage.service';
-import { STATIC_TEXTS } from './../constant';
+import { STATIC_TEXTS, FIELDS } from './../constant';
 import { NavigatorService } from '../services/navigator.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -40,6 +39,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
   TEXTS = STATIC_TEXTS;
   loginForm: FormGroup;
+  FIELDS = FIELDS;
   username = '';
   password = '';
   showLoader = false;
@@ -52,10 +52,16 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      username: [null, Validators.required],
-      password: [null, Validators.required],
-    });
+    const loginFormControls = {};
+    loginFormControls[this.FIELDS.USER_NAME] = [
+      null,
+      [Validators.required, Validators.maxLength(50)],
+    ];
+    loginFormControls[this.FIELDS.PASSWORD] = [
+      null,
+      [Validators.required, Validators.minLength(8), Validators.maxLength(50)],
+    ];
+    this.loginForm = this.formBuilder.group(loginFormControls);
   }
 
   onFormSubmit(): void {
