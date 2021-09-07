@@ -42,7 +42,7 @@ export class CamerasComponent implements OnInit {
     );
   }
 
-  getCameraDetails(cameraId: Number) {
+  navigateToCameraDetails(cameraId: Number) {
     if (cameraId) {
       this.navigatorService.navigateToCameraDetails(cameraId);
     } else {

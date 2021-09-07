@@ -7,15 +7,15 @@ import { APP_ROUTES } from './../constant';
 export class NavigatorService {
   constructor(private router: Router) {}
 
-  navigateToLogin() {
+  navigateToLogin(): void {
     this.router.navigate([APP_ROUTES.LOGIN]);
   }
 
-  navigateToCameras() {
+  navigateToCameras(): void {
     this.router.navigate([APP_ROUTES.CAMERAS]);
   }
 
-  navigateToCameraDetails(cameraId: Number) {
+  navigateToCameraDetails(cameraId: Number): void {
     this.router.navigate([APP_ROUTES.CAMERAS, `${cameraId}`]);
   }
 }

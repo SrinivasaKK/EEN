@@ -28,13 +28,13 @@ export class CameraDetailComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.cameraId = params['id'];
-      this.getStatus(this.cameraId);
+      this.fetchStatus(this.cameraId);
     });
   }
 
   ngOnInit(): void {}
 
-  getStatus(cameraId: Number) {
+  fetchStatus(cameraId: Number): void {
     this.showLoader = true;
     if (cameraId) {
       const details = this.storageService.getCameraStatus(cameraId);
@@ -63,7 +63,7 @@ export class CameraDetailComponent implements OnInit {
     }
   }
 
-  getCameraLocation(cameraId) {
+  fetchCameraLocation(cameraId: Number): void {
     this.showLoader = true;
     if (cameraId) {
       const details = this.storageService.getCameraLocation(cameraId);

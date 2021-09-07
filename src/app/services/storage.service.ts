@@ -23,11 +23,11 @@ export class StorageService {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   }
 
-  saveAccessToken(token): void {
+  saveAccessToken(token: string): void {
     localStorage.setItem(ACCESS_TOKEN_KEY, token);
   }
 
-  saveRefreshToken(refreshToken): void {
+  saveRefreshToken(refreshToken: string): void {
     localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
   }
 
@@ -39,31 +39,31 @@ export class StorageService {
     localStorage.removeItem(REFRESH_TOKEN_KEY);
   }
 
-  setLoggedIn(value): void {
+  setLoggedIn(value: string): void {
     localStorage.setItem(LOGGED_IN_KEY, value);
   }
 
-  isUserLoggedIn() {
+  isUserLoggedIn(): string {
     return localStorage.getItem(LOGGED_IN_KEY);
   }
 
-  setCameraDetails(cameraID, value): void {
+  setCameraDetails(cameraID: Number, value: string): void {
     localStorage.setItem(`${CAMERA_DETAILS_KEY}_${cameraID}`, value);
   }
 
-  getCameraDetails(cameraID): string {
+  getCameraDetails(cameraID: Number): string {
     return localStorage.getItem(`${CAMERA_DETAILS_KEY}_${cameraID}`);
   }
 
-  setCameraStatus(cameraID, value): void {
+  setCameraStatus(cameraID: Number, value: string): void {
     localStorage.setItem(`${CAMERA_STATUS_KEY}_${cameraID}`, value);
   }
 
-  getCameraStatus(cameraID): string {
+  getCameraStatus(cameraID: Number): string {
     return localStorage.getItem(`${CAMERA_STATUS_KEY}_${cameraID}`);
   }
 
-  getCameraLocation(cameraID): string {
+  getCameraLocation(cameraID: Number): string {
     return localStorage.getItem(`${CAMERA_LOCATION_KEY}_${cameraID}`);
   }
 
