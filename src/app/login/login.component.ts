@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
         this.showLoader = false;
         this.storageService.saveAccessToken(response.access_token);
         this.storageService.saveRefreshToken(response.refresh_token);
-        this.storageService.setLoggedIn(true);
+        this.storageService.setLoggedIn('true');
         this.navigatorService.navigateToCameras();
       },
       (error: ErrorResponseModel) => {

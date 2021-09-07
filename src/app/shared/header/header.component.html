@@ -1,11 +1,14 @@
 <header id="header">
+  <div></div>
   <h2>{{ TEXTS.HEADER_TEXT }}</h2>
-  <a
-    *ngIf="this.storageService.isUserLoggedIn() === 'true'"
-    mat-flat-button
-    color="primary"
-    (click)="logout()"
-    class="logout"
-    ><mat-icon>logout</mat-icon>{{ TEXTS.LOGOUT_TEXT }}</a
-  >
+  <div>
+    <a
+      *ngIf="this.storageService.isUserLoggedIn() === 'true'"
+      mat-flat-button
+      color="primary"
+      (click)="logout()"
+      class="logout"
+      ><mat-icon>power_settings_new</mat-icon></a
+    >
+  </div>
 </header>

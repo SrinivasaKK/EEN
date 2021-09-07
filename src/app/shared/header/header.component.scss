@@ -5,7 +5,7 @@
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: $color-primary;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 #header h2 {
@@ -15,4 +15,5 @@
 .logout {
   color: $color-white;
   cursor: pointer;
+  justify-self: flex-end;
 }
