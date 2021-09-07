@@ -51,6 +51,6 @@ export const APP_ROUTES = {
 };
 
 export const FIELDS = {
-  USER_NAME: 'fcUserName',
-  PASSWORD: 'fcPassword',
+  USER_NAME: 'username',
+  PASSWORD: 'password',
 };

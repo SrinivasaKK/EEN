@@ -13,6 +13,7 @@ import {
   OAUTH_END_PONT,
   STATIC_TEXTS,
   LOGOUT_END_POINT,
+  FIELDS,
 } from './../constant';
 
 import { PostResponseModel } from '../models/response.model';
@@ -58,12 +59,17 @@ export class AuthService {
   login(loginData: LoginModel): Observable<PostResponseModel> {
     this.storageService.removeAccessToken();
     this.storageService.removeRefreshToken();
+    console.log(loginData);
     const body = new HttpParams()
-      .set(STATIC_TEXTS.USER_NAME, loginData.username)
-      .set(STATIC_TEXTS.PASSWORD, loginData.password)
+      .set(STATIC_TEXTS.USER_NAME, loginData[FIELDS.USER_NAME])
+      .set(STATIC_TEXTS.PASSWORD, loginData[FIELDS.PASSWORD])
       .set(STATIC_TEXTS.GRANT_TYPE, STATIC_TEXTS.PASSWORD);
 
-    const loginEndPoint = `${OAUTH_END_PONT}?${STATIC_TEXTS.GRANT_TYPE}=${STATIC_TEXTS.PASSWORD}&${STATIC_TEXTS.SCOPE}=write&${STATIC_TEXTS.USER_NAME}=${loginData.username}&${STATIC_TEXTS.PASSWORD}=${loginData.password}`;
+    const loginEndPoint = `${OAUTH_END_PONT}?${STATIC_TEXTS.GRANT_TYPE}=${
+      STATIC_TEXTS.PASSWORD
+    }&${STATIC_TEXTS.SCOPE}=write&${STATIC_TEXTS.USER_NAME}=${
+      loginData[FIELDS.USER_NAME]
+    }&${STATIC_TEXTS.PASSWORD}=${loginData[FIELDS.PASSWORD]}`;
     return this.post(loginEndPoint, body, OPTIONS);
   }
 

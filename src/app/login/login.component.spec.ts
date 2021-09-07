@@ -58,8 +58,8 @@ describe('LoginComponent', () => {
   it('Initial form values to be null', () => {
     const form = component.loginForm;
     const formValues = {
-      fcUserName: null,
-      fcPassword: null,
+      username: null,
+      password: null,
     };
 
     expect(form.value).toEqual(formValues);
