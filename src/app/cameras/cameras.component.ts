@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { CameraResponseModel } from '../models/response.model';
 import { CAMERA_END_POINT, STATIC_TEXTS } from '../constant';
 import { NavigatorService } from '../services/navigator.service';
-import { StorageService } from '../services/token.service';
+import { StorageService } from '../services/storage.service';
 @Component({
   selector: 'app-cameras',
   templateUrl: './cameras.component.html',

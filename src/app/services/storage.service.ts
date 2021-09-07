@@ -6,7 +6,8 @@ import {
   CAMERA_DETAILS_KEY,
   CAMERA_STATUS_KEY,
   CAMERA_LIST_KEY,
-} from './../constant';
+  CAMERA_LOCATION_KEY,
+} from '../constant';
 
 @Injectable({
   providedIn: 'root',
@@ -62,11 +63,19 @@ export class StorageService {
     return localStorage.getItem(`${CAMERA_STATUS_KEY}_${cameraID}`);
   }
 
+  getCameraLocation(cameraID): string {
+    return localStorage.getItem(`${CAMERA_LOCATION_KEY}_${cameraID}`);
+  }
+
+  setCameraLocation(cameraID, value): void {
+    localStorage.setItem(`${CAMERA_LOCATION_KEY}_${cameraID}`, value);
+  }
+
   setCameraList(value): void {
-    localStorage.setItem(CAMERA_LIST_KEY, value);
+    localStorage.setItem(`${this.getAccessToken()}_${CAMERA_LIST_KEY}`, value);
   }
 
   getCameraList(): string {
-    return localStorage.getItem(CAMERA_LIST_KEY);
+    return localStorage.getItem(`${this.getAccessToken()}_${CAMERA_LIST_KEY}`);
   }
 }

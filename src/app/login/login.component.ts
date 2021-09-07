@@ -14,7 +14,7 @@ import {
   ErrorResponseModel,
   PostResponseModel,
 } from '../models/response.model';
-import { StorageService } from '../services/token.service';
+import { StorageService } from '../services/storage.service';
 import { STATIC_TEXTS } from './../constant';
 import { NavigatorService } from '../services/navigator.service';
 

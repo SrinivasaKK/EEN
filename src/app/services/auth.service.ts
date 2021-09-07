@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { StorageService } from './token.service';
+import { StorageService } from './storage.service';
 import {
   BASE_API_URL,
   OAUTH_END_PONT,

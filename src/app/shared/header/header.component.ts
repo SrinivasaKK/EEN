@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NavigatorService } from 'src/app/services/navigator.service';
-import { StorageService } from 'src/app/services/token.service';
+import { StorageService } from 'src/app/services/storage.service';
 import { STATIC_TEXTS } from './../../constant';
 @Component({
   selector: 'app-header',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import {
   CameraAccessErrorModel,
+  CameraLocationModel,
   CameraResponseModel,
   CameraStatusResponseModel,
   ErrorResponseModel,
@@ -9,7 +10,7 @@ import {
 import { CAMERA_END_POINT, STATIC_TEXTS } from '../constant';
 import { ActivatedRoute } from '@angular/router';
 import { NavigatorService } from '../services/navigator.service';
-import { StorageService } from '../services/token.service';
+import { StorageService } from '../services/storage.service';
 @Component({
   selector: 'app-camera-detail',
   templateUrl: './camera-detail.component.html',
@@ -20,7 +21,7 @@ export class CameraDetailComponent implements OnInit {
   TEXTS = STATIC_TEXTS;
   cameraId = null;
   cameraStatus = null;
-  cameraDetail: CameraResponseModel = null;
+  cameraLocation: CameraLocationModel;
   constructor(
     private authService: AuthService,
     private activatedRoute: ActivatedRoute,
@@ -29,44 +30,11 @@ export class CameraDetailComponent implements OnInit {
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.cameraId = params['id'];
-      this.getCameraDetails(this.cameraId);
+      this.getStatus(this.cameraId);
     });
   }
 
   ngOnInit(): void {}
-
-  getCameraDetails(cameraId: Number): void {
-    this.showLoader = true;
-    if (cameraId) {
-      //check if the details is already present for given camera ID
-
-      const details = this.storageService.getCameraDetails(cameraId);
-      if (details) {
-        this.cameraDetail = JSON.parse(details) as any;
-        this.showLoader = false;
-        return;
-      }
-
-      this.authService.get(`${CAMERA_END_POINT}/${cameraId}`).subscribe(
-        (response: CameraResponseModel) => {
-          this.cameraDetail = response;
-
-          //save to local storage
-          this.storageService.setCameraDetails(
-            cameraId,
-            JSON.stringify(response)
-          );
-          this.showLoader = false;
-        },
-        (error: CameraAccessErrorModel) => {
-          alert(error.error.title);
-          this.showLoader = false;
-        }
-      );
-    } else {
-      console.log('No Camera ID');
-    }
-  }
 
   getStatus(cameraId: Number) {
     this.showLoader = true;
@@ -92,6 +60,37 @@ export class CameraDetailComponent implements OnInit {
           this.showLoader = false;
         }
       );
+    } else {
+      console.log('No camera ID');
+    }
+  }
+
+  getCameraLocation(cameraId) {
+    this.showLoader = true;
+    if (cameraId) {
+      const details = this.storageService.getCameraLocation(cameraId);
+      if (details) {
+        this.cameraLocation = JSON.parse(details) as any;
+        this.showLoader = false;
+        return;
+      }
+      this.authService
+        .get(`${CAMERA_END_POINT}/${cameraId}/location`)
+        .subscribe(
+          (response: CameraLocationModel) => {
+            //save to local storage
+            this.storageService.setCameraLocation(
+              cameraId,
+              JSON.stringify(response)
+            );
+            this.cameraLocation = response;
+            this.showLoader = false;
+          },
+          (error: CameraAccessErrorModel) => {
+            alert(error.error.title);
+            this.showLoader = false;
+          }
+        );
     } else {
       console.log('No camera ID');
     }

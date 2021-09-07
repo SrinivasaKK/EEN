@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { NavigatorService } from '../services/navigator.service';
 import { AuthService } from './../services/auth.service';
-import { StorageService } from './../services/token.service';
+import { StorageService } from '../services/storage.service';
 
 @Injectable({
   providedIn: 'root',

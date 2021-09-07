@@ -2,32 +2,6 @@
   <div class="example-loading-shade" *ngIf="showLoader">
     <mat-spinner *ngIf="showLoader"></mat-spinner>
   </div>
-  <mat-card *ngIf="cameraDetail" class="mat-card-camera">
-    <mat-card-title>
-      {{ cameraDetail.name }}
-    </mat-card-title>
-    <mat-card-subtitle
-      >{{ TEXTS.ID }}: {{ cameraDetail.cameraId }}</mat-card-subtitle
-    >
-    <mat-card-actions>
-      <button
-        type="submit"
-        mat-flat-button
-        color="primary"
-        (click)="GoBackToCameras()"
-      >
-        <mat-icon>keyboard_backspace</mat-icon>{{ TEXTS.BACK_BUTTON_LABEL }}
-      </button>
-      <button
-        type="submit"
-        mat-flat-button
-        color="primary"
-        (click)="getStatus(cameraDetail.cameraId)"
-      >
-        <mat-icon>details icon</mat-icon>{{ TEXTS.SHOW_DETAILS }}
-      </button>
-    </mat-card-actions>
-  </mat-card>
 
   <mat-card *ngIf="cameraStatus" class="mat-card-camera">
     <mat-card-title>
@@ -49,5 +23,30 @@
       >{{ TEXTS.RECORDING_ON_SD }}:
       {{ cameraStatus.recordingOnSd }}</mat-card-subtitle
     >
+
+    <mat-card-actions>
+      <button
+        type="submit"
+        mat-flat-button
+        color="primary"
+        (click)="GoBackToCameras()"
+      >
+        <mat-icon>keyboard_backspace</mat-icon>{{ TEXTS.BACK_BUTTON_LABEL }}
+      </button>
+      <button
+        type="submit"
+        mat-flat-button
+        color="primary"
+        (click)="getCameraLocation(cameraStatus.cameraId)"
+      >
+        <mat-icon>location_on</mat-icon>{{ TEXTS.BUTTON_CAMERA_LOCATION }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngIf="cameraLocation" class="mat-card-camera">
+    <mat-card-title>
+      {{ TEXTS.CAMERA_LOCATED }}: {{ cameraLocation.timeZone }}
+    </mat-card-title>
   </mat-card>
 </div>

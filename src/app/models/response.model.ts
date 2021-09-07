@@ -66,3 +66,10 @@ export interface AccessErrorModel {
   title: string;
   detail: string;
 }
+
+export interface CameraLocationModel {
+  cameraId: Number;
+  latitude: string;
+  longitude: string;
+  timeZone: string;
+}

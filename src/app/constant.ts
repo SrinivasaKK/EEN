@@ -8,6 +8,7 @@ export const CAMERA_LIST_KEY = 'camera_list';
 export const CAMERA_DETAILS_KEY = 'camera_details';
 
 export const CAMERA_STATUS_KEY = 'camera_status';
+export const CAMERA_LOCATION_KEY = 'camera_location';
 
 export const BASE_API_URL = 'https://rest.cameramanager.com/';
 
@@ -40,6 +41,8 @@ export const STATIC_TEXTS = {
   FIRMWARE_STATUS: 'Firmware Status',
   ID: 'Id',
   RECORDING_ON_SD: 'Recording On SD',
+  BUTTON_CAMERA_LOCATION: 'Get Camera Location',
+  CAMERA_LOCATED: 'Your camera is located at',
 };
 
 export const APP_ROUTES = {
