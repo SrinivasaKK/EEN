@@ -1,12 +1,17 @@
-header {
+@import "./../../../variable.scss";
+#header {
   height: 50px;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background-color: #337ab7;
+  background-color: $color-primary;
   justify-content: center;
 }
 
-header h2 {
-  color: #fff;
+#header h2 {
+  color: $color-white;
+}
+
+.logout {
+  color: $color-white;
 }

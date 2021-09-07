@@ -46,7 +46,7 @@ export class CamerasComponent implements OnInit {
     if (cameraId) {
       this.navigatorService.navigateToCameraDetails(cameraId);
     } else {
-      console.log(STATIC_TEXTS.NO_CAMERA_ID_ERROR);
+      console.log(this.TEXTS.NO_CAMERA_ID_ERROR);
     }
   }
 }

@@ -78,4 +78,8 @@ export class StorageService {
   getCameraList(): string {
     return localStorage.getItem(`${this.getAccessToken()}_${CAMERA_LIST_KEY}`);
   }
+
+  clear(): void {
+    localStorage.clear();
+  }
 }

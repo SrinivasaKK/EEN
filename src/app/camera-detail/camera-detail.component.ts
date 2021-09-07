@@ -3,9 +3,7 @@ import { AuthService } from '../services/auth.service';
 import {
   CameraAccessErrorModel,
   CameraLocationModel,
-  CameraResponseModel,
   CameraStatusResponseModel,
-  ErrorResponseModel,
 } from '../models/response.model';
 import { CAMERA_END_POINT, STATIC_TEXTS } from '../constant';
 import { ActivatedRoute } from '@angular/router';
@@ -61,7 +59,7 @@ export class CameraDetailComponent implements OnInit {
         }
       );
     } else {
-      console.log('No camera ID');
+      alert(this.TEXTS.NO_CAMERA_ID_ERROR);
     }
   }
 
@@ -92,7 +90,7 @@ export class CameraDetailComponent implements OnInit {
           }
         );
     } else {
-      console.log('No camera ID');
+      alert(this.TEXTS.NO_CAMERA_ID_ERROR);
     }
   }
 

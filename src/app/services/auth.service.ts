@@ -83,9 +83,7 @@ export class AuthService {
   logout(): void {
     this.delete(LOGOUT_END_POINT).subscribe(
       (response) => {
-        this.storageService.removeAccessToken();
-        this.storageService.removeRefreshToken();
-        this.storageService.setLoggedIn(false);
+        this.storageService.clear();
       },
       (error) => {
         console.log(error);
