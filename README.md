@@ -40,3 +40,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 5. Have used Models for each API returned responses.
 
 6. Design is fairly Simple and simple. Used Angular material and css flex for it. No fancy designs.
+
+7. Added plenty of unit test cases.
