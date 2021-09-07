@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   { path: APP_ROUTES.LOGIN, component: LoginComponent },
 
-  { path: '**', redirectTo: '404' },
+  { path: '**', redirectTo: APP_ROUTES.CAMERAS },
 ];
 
 @NgModule({
